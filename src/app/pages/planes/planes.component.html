@@ -1,0 +1,47 @@
+
+<div class="card">
+   
+    <div class="card-body">
+      <h5 class="card-title">Consultar Datos</h5>
+      <form action="">
+        
+      
+
+        <div class="form-group">
+            <label for="" style="text-align: left;">* Documento:</label>
+            <input  [(ngModel)]="documento" name="Documento"  type="text" class="form-control">
+        </div>
+        
+        
+        <button  (click)="getDatos()" class="btn btn-success" style="width: 100%;" >Consultar</button>
+        
+      </form>
+    </div>
+
+</div>
+
+
+<div class="card">
+   
+    <div class="card-body">
+      <h5 class="card-title">Listado De Planes</h5>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let datos of planes ">
+            
+           
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+
+  </div>
+
+
