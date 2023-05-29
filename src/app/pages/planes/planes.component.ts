@@ -84,16 +84,16 @@ export class PlanesComponent {
   }
 
   //editar registro
-  editarCliente(plan: Planes): void {
+  editarPlanes(plan: Planes): void {
     localStorage.setItem("idPlanes", plan.idPlanEntrega.toString())
     this.route.navigate(["editarPlanes"]);
   }
 
   //elimina registro
-  eliminarCliente(plan: Planes) {
+  eliminarPlanes(plan: Planes) {
     this.planesService.deletePlan(plan).subscribe(data => {
       this.planes = this.planes.filter(t => t !== plan);
-      alert("reegistro Eliminado.")
+      alert("registro Eliminado.")
       this.route.navigate(["planes"]);
     })
   }
