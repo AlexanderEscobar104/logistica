@@ -1,0 +1,79 @@
+<app-menu></app-menu>
+
+<div class="card">
+
+    <div class="card-body">
+        <h5 class="card-title">Editar Registro</h5>
+        <form action="" *ngFor="let planes of model">
+            <div class="form-group">
+                <label for="" style="text-align: left;">Tipo Logistica:</label>
+                <select (change)="getTipoProductos(planes.tipoLogistica)" [(ngModel)]="planes.tipoLogistica" name="tipoLogistica" class="form-control">
+                    <option>Maritima</option>
+                    <option>Terrestre</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="" style="text-align: left;">* Cliente:</label>
+                <select [(ngModel)]="planes.idCliente" name="tipodocumento" class="form-control">
+                    <option *ngFor="let cliente of clientes" [value]="cliente.idCliente"> {{cliente.nombres}} </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="" style="text-align: left;">* Tipo Producto:</label>
+                <select [(ngModel)]="planes.idTipoProducto" name="tipodocumento" class="form-control">
+                    <option *ngFor="let tipoproducto of tipoproductos" [value]="tipoproducto.idTipoProducto"> {{tipoproducto.tipoProducto}} </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="" style="text-align: left;">Cantidad:</label>
+                <input  [(ngModel)]="planes.cantidad" name="cantidad"  type="number" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" style="text-align: left;">Fecha Registro:</label>
+                <input  [(ngModel)]="planes.fechaRegistro" name="fechaRegistro"  type="text" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="" style="text-align: left;">Fecha Entrega:</label>
+                <input  [(ngModel)]="planes.fechaEntrega" name="fechaEntrega"  type="text" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="" style="text-align: left;">Puerto Envio:</label>
+                <input  [(ngModel)]="planes.puertoEnvio" name="puertoEnvio"  type="text" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="" style="text-align: left;">Precio Envio:</label>
+                <input (change)="calcularDescuento(planes)" [(ngModel)]="planes.precioEnvio" name="nombres"  type="number" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="" style="text-align: left;">Descuento:</label>
+                <input disabled [(ngModel)]="planes.descuento" name="descuento"  type="number" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="" style="text-align: left;">Precio Total:</label>
+                <input disabled [(ngModel)]="total" name="total"  type="number" class="form-control">
+            </div>
+
+            <div *ngIf="planes.tipoLogistica =='Maritima'" class="form-group">
+                <label for="" style="text-align: left;">Numero Flota:</label>
+                <input  [(ngModel)]="planes.numeroFlota" name="numeroFlota"  type="text" class="form-control">
+            </div>
+
+            <div *ngIf="planes.tipoLogistica =='Terrestre'" class="form-group">
+                <label for="" style="text-align: left;">Placa:</label>
+                <input  [(ngModel)]="planes.placa" name="placa"  type="text" class="form-control">
+            </div>
+    
+            <div class="form-group">
+                <label for="" style="text-align: left;">Numero Guia:</label>
+                <input maxlength="10" [(ngModel)]="planes.numeroGuia" name="numeroGuia"  type="text" class="form-control">
+            </div>
+
+            <button (click)="actualizar(planes)" class="btn btn-success" style="width: 100%;">Guardar</button>
+        </form>
+    </div>
+</div>

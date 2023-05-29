@@ -1,0 +1,33 @@
+<app-menu></app-menu>
+
+<div class="card">
+   
+    <div class="card-body">
+      <h5 class="card-title">Nuevo Registro</h5>
+      <form action="">
+        <div class="form-group">
+            <label for="" style="text-align: left;">Identificación:</label>
+            <input  [(ngModel)]="model.identificacion" name="identificacion"  type="text" class="form-control">
+        </div>
+        
+        <div class="form-group">
+            <label for="" style="text-align: left;">Nombres:</label>
+            <input  [(ngModel)]="model.nombres" name="nombres"  type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="" style="text-align: left;">Direccion:</label>
+            <input  [(ngModel)]="model.direccion" name="direccion"  type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="" style="text-align: left;">Telefono:</label>
+            <input  [(ngModel)]="model.telefono" name="telefono"  type="text" class="form-control">
+        </div>
+
+        <button (click)="guardar(model)" class="btn btn-success" style="width: 100%;" >Guardar</button>
+      </form>
+    </div>
+  </div>
+
+

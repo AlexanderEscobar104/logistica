@@ -1,1 +1,52 @@
-<p>cliente works!</p>
+<app-menu></app-menu>
+
+<div class="card">
+
+    <div class="card-body">
+        <h5 class="card-title">Consultar Datos</h5>
+        <form action="">
+
+
+            <div class="form-group">
+                <label for="" style="text-align: left;">* Documento:</label>
+                <input [(ngModel)]="documento" name="Documento" type="text" class="form-control">
+            </div>
+
+
+            <button (click)="getDatos()" class="btn btn-success" style="width: 100%;">Consultar</button>
+
+        </form>
+    </div>
+
+</div>
+<div class="card">
+
+    <div class="card-body">
+        <h5 class="card-title">Listado De Clientes</h5>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Documento</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Telefono</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let datos of clientes ">
+                    <td>{{datos.identificacion}}</td>
+                    <td>{{datos.nombres}}</td>
+                    <td>{{datos.direccion}}</td>
+                    <td>{{datos.telefono}}</td>
+                    <td> <button (click)="editarCliente(datos)" class="btn btn-info">Editar</button></td>
+                    <td><button (click)="eliminarCliente(datos)" class="btn btn-danger">Eliminar</button></td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <button (click)="nuevoRegistro()" class="btn btn-info" style="width: 100%;">Nuevo</button>
+
+    </div>
+
+</div>

@@ -1,3 +1,5 @@
+<app-menu></app-menu>
+
 
 <div class="card">
    
@@ -5,15 +7,16 @@
       <h5 class="card-title">Consultar Datos</h5>
       <form action="">
         
-      
-
         <div class="form-group">
-            <label for="" style="text-align: left;">* Documento:</label>
-            <input  [(ngModel)]="documento" name="Documento"  type="text" class="form-control">
+            <label for="" style="text-align: left;">* Cliente:</label>
+            <select [(ngModel)]="documento" name="tipodocumento" class="form-control">
+                <option *ngFor="let cliente of clientes" [value]="cliente.idCliente"   > {{cliente.nombres}} </option>
+            </select>
         </div>
+
         
         
-        <button  (click)="getDatos()" class="btn btn-success" style="width: 100%;" >Consultar</button>
+        <button  (click)="getDatosPlanCliente()" class="btn btn-success" style="width: 100%;" >Consultar</button>
         
       </form>
     </div>
@@ -24,21 +27,49 @@
 <div class="card">
    
     <div class="card-body">
-      <h5 class="card-title">Listado De Planes</h5>
-      <table class="table table-striped">
+      <h5 class="card-title">Listado De Turnos</h5>
+      <div class="table-responsive">
+        <table class="table">
         <thead>
           <tr>
-            
+         
+            <th scope="col">Tipo Produc.</th>
+            <th scope="col">Tipo Logis.</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Cant.</th>
+            <th scope="col">F. Registro</th>
+            <th scope="col">F. Entrega</th>
+            <th scope="col">Puerto Envio</th>
+            <th scope="col">Precio Envio</th>
+            <th scope="col">Descuento</th>
+            <th scope="col">Nro Flota</th>
+            <th scope="col">Nro Guia</th>
+            <th scope="col">Placa</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let datos of planes ">
-            
            
+            <td>{{datos.tipoProducto}}</td>
+            <td>{{datos.tipoLogistica}}</td>
+            <td>{{datos.nombres}}</td>
+            <td>{{datos.cantidad}}</td>
+            <td>{{datos.fechaRegistro | date: 'dd/MMM/yyyy'}}</td>
+            <td>{{datos.fechaEntrega | date: 'dd/MMM/yyyy' }}</td>
+            <td>{{datos.puertoEnvio}}</td>
+            <td>{{datos.precioEnvio}}</td>
+            <td>{{datos.descuento}}</td>
+            <td>{{datos.numeroFlota}}</td>
+            <td>{{datos.numeroGuia}}</td>
+            <td>{{datos.placa}}</td>
+            <td> <button (click)="editarCliente(datos)" class="btn btn-info">Editar</button></td>
+            <td><button (click)="eliminarCliente(datos)" class="btn btn-danger">Eliminar</button></td>
           </tr>
         </tbody>
+        
       </table>
-
+      </div>
+      <button (click)="nuevoRegistro()" class="btn btn-info" style="width: 100%;">Nuevo</button>
 
     </div>
 

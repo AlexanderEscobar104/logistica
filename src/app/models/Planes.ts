@@ -1,17 +1,19 @@
 export class Planes{
     
-    IdPlanEntrega: number;
-    IdCliente: number;
-    IdTipoProducto: number;
-    Cantidad: number;
-    FechaRegistro: string;
-    FechaEntrega: string;
-    PuertoEnvio: string;
-    PrecioEnvio: number;
-    Descuento: number;
-    NumeroFlota: string;
-    NumeroGuia: string;
-    TipoLogistica: string;
-    Placa: string;
+    idPlanEntrega: number;
+    idCliente: number;
+    idTipoProducto: number;
+    cantidad: number;
+    fechaRegistro: Date;
+    fechaEntrega: Date;
+    puertoEnvio: string;
+    precioEnvio: number;
+    descuento: number = 0;
+    numeroFlota: string = '';
+    numeroGuia: string;
+    tipoLogistica: string;
+    placa: string = '';
+    nombres:  string = '';
+    tipoProducto: string = '' ;
     
 }

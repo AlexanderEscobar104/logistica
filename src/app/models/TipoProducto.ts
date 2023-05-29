@@ -1,7 +1,7 @@
 export class TipoProducto{
     
-    IdTipoProducto: number;
-    TipoProducto: string;
-    TipoLogistica: string;
+    idTipoProducto: number;
+    tipoProducto: string;
+    tipoLogistica: string;
   
 }

@@ -1,0 +1,79 @@
+<app-menu></app-menu>
+
+<div class="card">
+
+    <div class="card-body">
+        <h5 class="card-title">Nuevo Registro</h5>
+        <form action="">
+            <div class="form-group">
+                <label for="" style="text-align: left;">Tipo Logistica:</label>
+                <select (change)="getTipoProductos()" [(ngModel)]="model.tipoLogistica" name="tipoLogistica" class="form-control">
+                    <option>Maritima</option>
+                    <option>Terrestre</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="" style="text-align: left;">* Cliente:</label>
+                <select [(ngModel)]="model.idCliente" name="tipodocumento" class="form-control">
+                    <option *ngFor="let cliente of clientes" [value]="cliente.idCliente"> {{cliente.nombres}} </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="" style="text-align: left;">* Tipo Producto:</label>
+                <select [(ngModel)]="model.idTipoProducto" name="tipodocumento" class="form-control">
+                    <option *ngFor="let tipoproducto of tipoproductos" [value]="tipoproducto.idTipoProducto"> {{tipoproducto.tipoProducto}} </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="" style="text-align: left;">Cantidad:</label>
+                <input  [(ngModel)]="model.cantidad" name="cantidad"  type="number" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="" style="text-align: left;">Fecha Registro:</label>
+                <input datetime="yyyy-MM-dd" [(ngModel)]="model.fechaRegistro" name="fechaRegistro"  type="date" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="" style="text-align: left;">Fecha Entrega:</label>
+                <input datetime="yyyy-MM-dd"  [(ngModel)]="model.fechaEntrega" name="fechaEntrega"  type="date" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="" style="text-align: left;">Puerto Envio:</label>
+                <input  [(ngModel)]="model.puertoEnvio" name="puertoEnvio"  type="text" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="" style="text-align: left;">Precio Envio:</label>
+                <input (change)="calcularDescuento()"  [(ngModel)]="model.precioEnvio" name="nombres"  type="number" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="" style="text-align: left;">Descuento:</label>
+                <input disabled  [(ngModel)]="model.descuento" name="descuento"  type="number" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="" style="text-align: left;">Precio Total:</label>
+                <input disabled [(ngModel)]="total" name="total"  type="number" class="form-control">
+            </div>
+
+            <div *ngIf="model.tipoLogistica =='Maritima'" class="form-group">
+                <label for="" style="text-align: left;">Numero Flota:</label>
+                <input  [(ngModel)]="model.numeroFlota" name="numeroFlota"  type="text" class="form-control">
+            </div>
+
+            <div *ngIf="model.tipoLogistica =='Terrestre'" class="form-group">
+                <label for="" style="text-align: left;">Placa:</label>
+                <input  [(ngModel)]="model.placa" name="placa"  type="text" class="form-control">
+            </div>
+    
+            <div class="form-group">
+                <label for="" style="text-align: left;">Numero Guia:</label>
+                <input maxlength="10"   [(ngModel)]="model.numeroGuia" name="numeroGuia"  type="text" class="form-control">
+            </div>
+
+            <button (click)="guardar(model)" class="btn btn-success" style="width: 100%;">Guardar</button>
+        </form>
+    </div>
+</div>
